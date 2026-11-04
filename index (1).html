@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090b18">
+<title>Miguel Ángel Chipana | Mi espacio personal</title>
+<style>
+:root{
+ --bg:#080a16;--panel:rgba(18,22,43,.82);--panel2:rgba(25,30,58,.78);
+ --line:rgba(164,153,255,.22);--text:#f4f2ff;--muted:#b7b6d0;
+ --violet:#a78bfa;--cyan:#67e8f9;--pink:#f0abfc;--gold:#f6d58a;
+ --shadow:0 18px 60px rgba(0,0,0,.38);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;background:
+ radial-gradient(ellipse at 15% 12%,rgba(107,75,190,.24),transparent 34%),
+ radial-gradient(ellipse at 90% 30%,rgba(26,145,170,.16),transparent 32%),
+ radial-gradient(ellipse at 50% 90%,rgba(163,75,150,.14),transparent 38%),var(--bg);
+ min-height:100vh;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+button{font:inherit;color:inherit;cursor:pointer}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1180px,92%);margin:auto;position:relative;z-index:1}
+header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:26px 0 18px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.4px}
+.brand-mark{width:43px;height:43px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--violet),var(--cyan));color:#101225;font-size:20px;box-shadow:0 0 28px #9d8cff55}
+.brand small{display:block;color:var(--muted);font-size:11px;font-weight:500;letter-spacing:2px;margin-top:3px}
+.top-actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.pill{border:1px solid var(--line);background:#ffffff09;border-radius:999px;padding:9px 14px;font-size:12px;color:#dedafa;transition:.25s}
+.pill:hover,.pill.active{background:#a78bfa22;border-color:#bba8ff;transform:translateY(-2px)}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:stretch;margin-top:12px}
+.panel{background:linear-gradient(145deg,rgba(27,31,58,.88),rgba(13,16,33,.88));border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);backdrop-filter:blur(16px)}
+.profile{padding:27px;position:relative;overflow:hidden}
+.profile:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:#9c7bff16;filter:blur(15px);right:-110px;top:-120px}
+.eyebrow{color:var(--cyan);font-size:11px;text-transform:uppercase;letter-spacing:3px;font-weight:800}
+h1{font-size:clamp(29px,4vw,48px);line-height:1.06;margin:12px 0 10px;letter-spacing:-1.5px}
+.gradient{background:linear-gradient(90deg,#fff,var(--violet),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);line-height:1.7;max-width:650px;font-size:14px}
+.facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.fact{border:1px solid #aaa0e633;background:#ffffff08;border-radius:13px;padding:10px 13px;text-align:left;min-width:112px;transition:.25s}
+.fact:hover{border-color:var(--cyan);transform:translateY(-3px)}
+.fact b{display:block;font-size:11px;color:var(--muted);font-weight:600;margin-bottom:4px}
+.fact span{font-size:13px;font-weight:700}
+.fact-detail{margin-top:13px;padding:12px 15px;border-left:3px solid var(--cyan);background:#67e8f90d;border-radius:0 12px 12px 0;color:#e8e8fa;font-size:13px;line-height:1.6;min-height:44px}
+.visual{padding:18px;display:flex;flex-direction:column;min-height:310px;position:relative;overflow:hidden}
+.visual-art{flex:1;min-height:205px;border-radius:18px;position:relative;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 48%,#a78bfa45,transparent 32%),linear-gradient(135deg,#171c3b,#101629 65%,#182c42)}
+.orbit{position:absolute;border:1px solid #b9a7ff66;border-radius:50%;width:220px;height:220px;animation:spin 24s linear infinite}
+.orbit.two{width:290px;height:150px;transform:rotate(-30deg);border-color:#67e8f966;animation:spin 32s linear infinite reverse}
+.orbit:before{content:"";position:absolute;width:9px;height:9px;background:var(--cyan);border-radius:50%;top:20px;left:30px;box-shadow:0 0 18px var(--cyan)}
+.logo-placeholder{width:116px;height:116px;border-radius:34px;display:grid;place-items:center;font-size:48px;background:linear-gradient(145deg,#bba8ff,#67e8f9);color:#11152c;box-shadow:0 0 55px #a78bfa77;animation:float 4s ease-in-out infinite}
+.visual-quote{position:absolute;bottom:14px;left:15px;right:15px;text-align:center;font-weight:800;font-size:14px;text-shadow:0 2px 15px #000;animation:float 5s ease-in-out infinite}
+.visual-note{font-size:11px;color:var(--muted);padding:11px 3px 1px;text-align:center}
+@keyframes spin{to{transform:rotate(360deg)}}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.presentation{margin-top:22px;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.section-kicker{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);font-weight:800}
+.presentation h2{font-size:19px;margin:5px 0}
+.presentation p{color:var(--muted);font-size:13px;margin:0}
+.action{border:1px solid #b8a5ff88;background:linear-gradient(110deg,#8b70e8,#5c9fc5);border-radius:12px;padding:11px 17px;font-weight:800;font-size:12px;box-shadow:0 8px 25px #8b70e833;transition:.25s;white-space:nowrap}
+.action:hover{transform:translateY(-3px);filter:brightness(1.12)}
+.presentation-content{display:none;margin-top:10px;padding:19px 22px;line-height:1.75;color:#dedcf3;font-size:14px}
+.presentation-content.open{display:block;animation:reveal .35s ease}
+@keyframes reveal{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+h2.section-title{font-size:20px;margin:30px 0 14px}
+h2.section-title span{color:var(--muted);font-size:12px;font-weight:500;margin-left:8px}
+.circle-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:13px}
+.circle-card{border:1px solid var(--line);background:linear-gradient(160deg,#202447aa,#11162dcc);border-radius:19px;padding:17px 8px 14px;text-align:center;transition:.28s;min-width:0}
+.circle-card:hover,.circle-card.selected{transform:translateY(-6px);border-color:#b6a4ff;box-shadow:0 12px 30px #8d7bea22}
+.circle-icon{width:70px;height:70px;margin:0 auto 11px;border-radius:50%;display:grid;place-items:center;font-size:29px;background:linear-gradient(145deg,#a78bfa33,#67e8f922);border:1px solid #bba8ff77;box-shadow:inset 0 0 20px #a78bfa15,0 0 24px #a78bfa18;animation:float 5s ease-in-out infinite}
+.circle-card:nth-child(2) .circle-icon{animation-delay:.4s}.circle-card:nth-child(3) .circle-icon{animation-delay:.8s}.circle-card:nth-child(4) .circle-icon{animation-delay:1.2s}.circle-card:nth-child(5) .circle-icon{animation-delay:1.6s}.circle-card:nth-child(6) .circle-icon{animation-delay:2s}
+.circle-card strong{display:block;font-size:12px}.circle-card small{color:var(--muted);font-size:10px;display:block;margin-top:5px}
+.lower{display:grid;grid-template-columns:275px 1fr;gap:18px;margin-top:24px;align-items:start}
+.side-menu{padding:16px;display:grid;gap:10px}
+.side-btn{width:100%;text-align:left;border:1px solid transparent;background:#ffffff08;padding:15px;border-radius:13px;display:flex;align-items:center;gap:11px;font-weight:750;font-size:13px;transition:.25s}
+.side-btn span{font-size:19px}.side-btn:hover,.side-btn.active{background:#a78bfa20;border-color:#a78bfa77;transform:translateX(3px)}
+.content-panel{padding:22px;min-height:390px}
+.content-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:15px;margin-bottom:17px}
+.content-head h2{margin:0;font-size:22px}.content-head p{margin:6px 0 0;color:var(--muted);font-size:12px}
+.back{background:transparent;border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:11px;color:var(--muted)}
+.content-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.info-card{background:linear-gradient(140deg,#ffffff0c,#ffffff04);border:1px solid #a89bff24;border-radius:15px;padding:15px;transition:.22s}
+.info-card:hover{border-color:#67e8f966;transform:translateY(-3px)}
+.info-card h3{font-size:13px;margin:0 0 7px;color:#e9e2ff}.info-card p{font-size:12px;line-height:1.65;color:var(--muted);margin:0}
+.info-card button{margin-top:10px;background:#a78bfa18;border:1px solid #a78bfa55;border-radius:9px;padding:7px 10px;font-size:11px}
+.detail-box{margin-top:14px;padding:15px;border-radius:14px;background:#67e8f90c;border:1px solid #67e8f933;line-height:1.7;font-size:13px;color:#e4e4f6;display:none}
+.detail-box.show{display:block;animation:reveal .3s ease}
+.tag{display:inline-block;padding:6px 9px;margin:4px 4px 0 0;border-radius:999px;background:#a78bfa18;border:1px solid #a78bfa44;font-size:11px;color:#e5dcff}
+.social{margin:26px 0 18px;padding:25px;text-align:center}
+.social h2{margin:0 0 7px;font-size:22px}.social p{color:var(--muted);font-size:12px;margin:0 0 18px}
+.socials{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+.social-link{width:88px;display:grid;justify-items:center;gap:7px;color:#e8e4ff;font-size:11px}
+.social-icon{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:20px;background:linear-gradient(145deg,#a78bfa44,#67e8f922);border:1px solid #bba8ff77;transition:.25s}
+.social-link:hover .social-icon{transform:translateY(-5px) rotate(8deg);box-shadow:0 0 25px #a78bfa66}
+footer{text-align:center;padding:0 0 25px;color:#8586a7;font-size:11px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);background:#202747;border:1px solid #a78bfa66;padding:11px 16px;border-radius:12px;font-size:12px;opacity:0;pointer-events:none;transition:.3s;z-index:5}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:850px){.hero{grid-template-columns:1fr}.visual{min-height:270px}.circle-grid{grid-template-columns:repeat(3,1fr)}.lower{grid-template-columns:1fr}.side-menu{grid-template-columns:repeat(3,1fr)}.side-btn{justify-content:center;text-align:center;flex-direction:column;gap:5px;padding:12px 6px}}
+@media(max-width:540px){header{align-items:flex-start;flex-direction:column}.top-actions{justify-content:flex-start}.profile{padding:21px}.facts{display:grid;grid-template-columns:repeat(2,1fr)}.fact{min-width:0}.presentation{align-items:flex-start;flex-direction:column}.circle-grid{grid-template-columns:repeat(2,1fr);gap:9px}.circle-icon{width:62px;height:62px}.side-menu{grid-template-columns:1fr}.side-btn{flex-direction:row;justify-content:flex-start;text-align:left;padding:13px}.content-panel{padding:16px}.content-grid{grid-template-columns:1fr}.content-head h2{font-size:19px}}
+
+/* Componentes añadidos para la práctica DOM */
+.top-actions{position:relative}.hamburger-menu{display:none;position:absolute;right:0;top:46px;z-index:10;min-width:190px;padding:8px;background:#171b35;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+.hamburger-menu.open{display:grid;animation:reveal .2s ease}.hamburger-menu a{padding:11px 12px;border-radius:9px;font-size:12px;color:#e8e4ff}.hamburger-menu a:hover{background:#a78bfa24}
+body.light-mode{--bg:#eef0fa;--panel:rgba(255,255,255,.9);--panel2:#fff;--text:#20223b;--muted:#5f627e;--line:rgba(91,82,155,.24);background:radial-gradient(ellipse at 15% 12%,#d8d0ff,transparent 34%),radial-gradient(ellipse at 90% 30%,#c9f4f7,transparent 32%),#eef0fa;color:var(--text)}
+body.light-mode .panel{background:linear-gradient(145deg,#ffffffed,#f7f7ffed)}body.light-mode .circle-card{background:linear-gradient(160deg,#fff,#f0efff)}body.light-mode .side-btn{color:#292b48}body.light-mode .info-card{background:#f7f7ff;border-color:#d8d3f2}body.light-mode .info-card h3{color:#343052}body.light-mode .info-card p{color:#62627b}body.light-mode .fact{background:#fff;color:#292b48}body.light-mode .fact-detail{color:#30334e}body.light-mode .presentation-content{color:#363852}
+.dom-tools{padding:23px;margin-top:22px}.dom-tools h2{margin:7px 0;font-size:21px}.dom-tools>p,.form-intro{font-size:12px;color:var(--muted);line-height:1.6}.dom-columns{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:17px}.dom-box{padding:17px;border:1px solid var(--line);background:#ffffff07;border-radius:16px}.dom-box h3{font-size:15px;margin:0 0 8px}.dom-box p{font-size:12px;color:var(--muted);line-height:1.5}.select-row{display:grid;grid-template-columns:1fr 1fr;gap:9px}.select-row label,.form-grid label{display:grid;gap:7px;color:var(--muted);font-size:11px}.select-row select,.form-grid input,.form-grid select,.form-grid textarea,.filter-search{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px;background:#11162c;color:var(--text);outline:none}.select-row select:focus,.form-grid input:focus,.form-grid select:focus,.form-grid textarea:focus,.filter-search:focus{border-color:var(--cyan);box-shadow:0 0 0 3px #67e8f91c}.dom-result{margin-top:12px;padding:12px;border-radius:11px;background:#a78bfa14;color:#e7e2ff;font-size:12px;line-height:1.6;min-height:43px}.filter-controls{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}.filter-btn{border:1px solid var(--line);border-radius:999px;background:#ffffff09;padding:7px 12px;font-size:11px}.filter-btn.active{background:#a78bfa33;border-color:var(--violet)}.filter-search{margin-bottom:9px}.filter-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}.filter-item{padding:10px;border:1px solid var(--line);border-radius:10px;background:#ffffff08}.filter-item b,.filter-item small{display:block}.filter-item b{font-size:11px}.filter-item small{font-size:10px;color:var(--muted);margin-top:4px}.filter-count{margin-bottom:0}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:16px}.form-grid .full-field{grid-column:1/-1}.form-grid textarea{resize:vertical}.terms{display:flex;align-items:flex-start;gap:9px;margin-top:14px;color:var(--muted);font-size:11px}.terms input{accent-color:var(--violet);margin:0}.form-actions{display:flex;gap:10px;margin-top:15px}.form-feedback{margin-top:12px;font-size:12px;line-height:1.6}.form-feedback.error{color:#ffaaaa}.form-feedback.success{color:#8be8c2}
+@media(max-width:700px){.dom-columns{grid-template-columns:1fr}.filter-list{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.form-grid .full-field{grid-column:auto}.select-row{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+ <div class="brand"><div class="brand-mark">M</div><div>//PANTERAS//<small>MI ESPACIO PERSONAL</small></div></div>
+ <div class="top-actions">
+  <button class="pill" id="themeToggle" type="button">☀ / ☾ Tema</button>
+  <button class="pill" id="menuToggle" type="button" aria-expanded="false">☰ Menú</button>
+  <nav class="hamburger-menu" id="hamburgerMenu" aria-label="Navegación principal">
+   <a href="#mainCircles">Mis secciones</a><a href="#domTools">Música y filtros</a><a href="#contactForm">Formulario</a><a href="#socialLinks">Redes sociales</a>
+  </nav>
+ </div>
+ <nav class="top-actions" aria-label="Datos personales">
+  <button class="pill" data-fact="nombre">Nombre</button><button class="pill" data-fact="edad">Edad</button>
+  <button class="pill" data-fact="universidad">Universidad</button><button class="pill" data-fact="cumple">Cumpleaños</button><button class="pill" data-fact="signo">Signo Tauro</button>
+ </nav>
+</header>
+
+<section class="hero">
+ <div class="panel profile">
+  <div class="eyebrow">Bienvenido a mi mundo</div>
+  <h1>Un poco de mí,<br><span class="gradient">mucho por descubrir.</span></h1>
+  <p class="lead">Este espacio reúne mis experiencias, intereses, pasatiempos, metas y sueños. Cada sección guarda una parte de mi historia y de las cosas que me inspiran a seguir creciendo.</p>
+  <div class="facts">
+   <button class="fact" data-fact="nombre"><b>MI NOMBRE</b><span>Miguel Ángel</span></button>
+   <button class="fact" data-fact="edad"><b>EDAD</b><span>Ver información</span></button>
+   <button class="fact" data-fact="universidad"><b>UNIVERSIDAD</b><span>UPDS</span></button>
+   <button class="fact" data-fact="cumple"><b>CUMPLEAÑOS</b><span>2 de mayo</span></button>
+   <button class="fact" data-fact="signo"><b>SIGNO</b><span>♉ Tauro</span></button>
+  </div>
+  <div class="fact-detail" id="factDetail">Selecciona cualquiera de los datos para conocer un poco más.</div>
+ </div>
+ <div class="panel visual">
+  <div class="visual-art">
+   <div class="orbit"></div><div class="orbit two"></div>
+   
+   
+   <div class="logo-placeholder" style="position:relative;width:100%;height:100%;overflow:hidden;padding:0;border-radius:18px;">
+  <!-- 🖼️ La imagen ocupa TODO el cuadro -->
+  <img id="carrusel-imagen" src="panter.gif" alt="Carrusel" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
+  
+  <!-- ✍️ La frase va encima, bien visible -->
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;color:white;text-shadow:0 2px 10px rgba(0,0,0,0.7);z-index:1;">
+    <strong>"Porque la historia deve continuar, Los cero miedo."</strong>
+  </div>
+</div>
+
+<script>
+const misImagenes = [
+  "panter.gif",
+  "panter1.gif",
+  "panter5.gif"
+];
+let posicion = 0;
+setInterval(function() {
+  posicion = (posicion + 1) % misImagenes.length;
+  document.getElementById('carrusel-imagen').src = misImagenes[posicion];
+}, 3000);
+</script>
+  </div>
+</section>
+
+
+<section class="panel presentation">
+ <div><div class="section-kicker">Conóceme un poco más</div><h2>Presentación personal</h2><p>Una breve introducción sobre quién soy y lo que me representa.</p></div>
+ <button class="action" id="presentationBtn">Ver presentación　＋</button>
+</section>
+<div class="panel presentation-content" id="presentationContent">
+ <strong>¡Hola! ¿Qué tal?</strong> Soy Miguel Ángel Chipana Choque, también conocido como “Panteras”. Actualmente estudio Ingeniería de Sistemas en la Universidad Privada Domingo Savio (UPDS). Me considero una persona con curiosidad por aprender, creatividad e interés por la música, el arte, la tecnología y las experiencias nuevas. En este sitio comparto algunas de mis aficiones, habilidades, objetivos y recuerdos. ¡Espero que disfrutes recorriendo mi espacio personal!
+</div>
+
+<h2 class="section-title">Mi mundo en seis partes <span>Selecciona un círculo para explorar</span></h2>
+<section class="circle-grid" id="mainCircles">
+ <button class="circle-card" data-section="pasatiempos"><div class="circle-icon">🎮</div><strong>Pasatiempos</strong><small>Lo que disfruto</small></button>
+ <button class="circle-card" data-section="intereses"><div class="circle-icon">✨</div><strong>Intereses</strong><small>Lo que me inspira</small></button>
+ <button class="circle-card" data-section="habilidades"><div class="circle-icon">🎨</div><strong>Habilidades</strong><small>Lo que sé hacer</small></button>
+ <button class="circle-card" data-section="metas"><div class="circle-icon">🎯</div><strong>Metas</strong><small>Lo que quiero lograr</small></button>
+ <button class="circle-card" data-section="suenos"><div class="circle-icon">🌅</div><strong>Sueños</strong><small>Lo que imagino</small></button>
+ <button class="circle-card" data-section="logros"><div class="circle-icon">🏆</div><strong>Logros</strong><small>Lo que he conseguido</small></button>
+</section>
+
+<section class="lower">
+ <aside class="panel side-menu">
+  <button class="side-btn" data-section="gustos"><span>💜</span> Gustos y preferencias</button>
+  <button class="side-btn" data-section="viajes"><span>✈️</span> Viajes y aventuras</button>
+  <button class="side-btn" data-section="sobremi"><span>🪞</span> Más sobre mí</button>
+ </aside>
+ <main class="panel content-panel" id="contentPanel">
+  <div class="content-head"><div><h2 id="contentTitle">Explora mi espacio</h2><p id="contentSubtitle">Selecciona una de las categorías para descubrir su contenido.</p></div><button class="back" id="resetContent">Inicio ↺</button></div>
+  <div class="content-grid" id="contentGrid">
+   <article class="info-card"><h3>Un espacio interactivo</h3><p>Los botones de la izquierda y los círculos permiten cambiar esta sección sin salir de la página.</p></article>
+   <article class="info-card"><h3>A mi manera</h3><p>El contenido está organizado para que puedas ampliarlo y personalizarlo cuando quieras.</p></article>
+  </div>
+  <div class="detail-box" id="detailBox"></div>
+ </main>
+</section>
+
+
+<section class="panel dom-tools" id="domTools">
+ <div class="dom-heading"><div><div class="section-kicker">Práctica de manipulación del DOM</div><h2>Mi música y entretenimiento</h2><p>Selecciona dos artistas y utiliza los filtros para encontrar canciones o juegos.</p></div></div>
+ <div class="dom-columns">
+  <div class="dom-box">
+   <h3>🎶 Doble selección musical</h3>
+   <p>Elige dos artistas de música romántica para mostrar tu selección.</p>
+   <div class="select-row">
+    <label>Artista 1<select id="artistOne"><option value="">Seleccionar artista</option><option>Chayanne</option><option>Ricardo Arjona</option><option>Camila</option><option>Sin Bandera</option></select></label>
+    <label>Artista 2<select id="artistTwo"><option value="">Seleccionar artista</option><option>Chayanne</option><option>Ricardo Arjona</option><option>Camila</option><option>Sin Bandera</option></select></label>
+   </div>
+   <div class="dom-result" id="musicResult">Selecciona dos artistas diferentes para ver tu combinación musical.</div>
+  </div>
+  <div class="dom-box">
+   <h3>🔎 Filtro de canciones y juegos</h3>
+   <div class="filter-controls"><button class="filter-btn active" data-filter="all">Todo</button><button class="filter-btn" data-filter="song">Canciones</button><button class="filter-btn" data-filter="game">Juegos</button></div>
+   <input class="filter-search" id="itemSearch" type="search" placeholder="Buscar por nombre..." aria-label="Buscar canciones o juegos">
+   <div class="filter-list" id="filterList">
+    <div class="filter-item" data-type="song"><b>🎵 Tiempo de vals</b><small>Chayanne · Romántica</small></div>
+    <div class="filter-item" data-type="song"><b>🎵 Historia de taxi</b><small>Ricardo Arjona · Pop latino</small></div>
+    <div class="filter-item" data-type="song"><b>🎵 Un siglo sin ti</b><small>Chayanne · Romántica</small></div>
+    <div class="filter-item" data-type="game"><b>🎮 Ajedrez</b><small>Estrategia</small></div>
+    <div class="filter-item" data-type="game"><b>🎮 Fútbol</b><small>Deportes</small></div>
+    <div class="filter-item" data-type="game"><b>🎮 Juegos de carreras</b><small>Velocidad</small></div>
+   </div>
+   <p class="filter-count" id="filterCount">6 elementos</p>
+  </div>
+ </div>
+</section>
+
+<section class="panel dom-tools" id="contactForm">
+ <div class="section-kicker">Formulario con validaciones</div><h2>Cuéntame un poco de ti</h2>
+ <p class="form-intro">Completa los campos. JavaScript comprobará que la información sea válida antes de mostrar la confirmación.</p>
+ 
+<section class="panel dom-tools" id="contactForm">
+ <div class="section-kicker">Formulario con validaciones</div><h2>Cuéntame un poco de ti</h2>
+ <p class="form-intro">Completa los campos. JavaScript comprobará que la información sea válida antes de mostrar la confirmación.</p>
+ <form id="personalForm" novalidate>
+  <div class="form-grid">
+   <label>Nombre completo<input id="visitorName" name="name" type="text" placeholder="Ej. Ana Pérez" required minlength="3" maxlength="60"></label>
+   <label>Correo electrónico<input id="visitorEmail" name="email" type="email" placeholder="correo@ejemplo.com" required></label>
+   <label>Edad<input id="visitorAge" name="age" type="number" min="13" max="100" placeholder="Tu edad" required></label>
+   <label>¿Qué sección te gustó más?<select id="visitorSection" required><option value="">Selecciona una sección</option><option>Pasatiempos</option><option>Intereses</option><option>Viajes y aventuras</option><option>Gustos y preferencias</option></select></label>
+   <label class="full-field">Mensaje<textarea id="visitorMessage" name="message" rows="4" minlength="10" maxlength="500" placeholder="Escribe un mensaje de al menos 10 caracteres..." required></textarea></label>
+  </div>
+  <label class="terms"><input id="visitorTerms" type="checkbox" required> Confirmo que los datos ingresados son correctos.</label>
+  <div class="form-actions"><button class="action" type="submit">Enviar formulario</button><button class="back" type="reset">Limpiar</button></div>
+  <div class="form-feedback" id="formFeedback" role="status" aria-live="polite"></div>
+ </form>
+</section>
+
+<section class="panel social" id="socialLinks">
+ <h2>Sígueme en mis redes sociales</h2><p>También puedes encontrarme y conectar conmigo en estas plataformas.</p>
+ <div class="socials">
+  <a class="social-link" href="https://www.instagram.com/miguelpanteras?rpxt=bXBjbjlhcGVmOGkx" data-social="Instagram"><span class="social-icon">◎</span>Instagram</a>
+  <a class="social-link" href="+591 75293667" data-social="WhatsApp"><span class="social-icon">◔</span>WhatsApp</a>
+  <a class="social-link" href="https://www.tiktok.com/@panna_miguel7?_r=1&_t=ZS-9B5w3W9k8Ge" data-social="TikTok"><span class="social-icon">♪</span>TikTok</a>
+  <a class="social-link" href="https://www.facebook.com/share/18tQNuD8GC/" data-social="Facebook"><span class="social-icon">f</span>Facebook</a>
+  <a class="social-link" href="https://x.com/Panteras_7" data-social="X"><span class="social-icon">𝕏</span>X / Twitter</a>
+ </div>
+</section>
+<footer>© 2026 · Miguel Ángel Chipana · Mi espacio personal</footer>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const factText={
+ nombre:"Mi nombre es Miguel Ángel Chipana Choque. También me conocen por el apodo “Panteras”.",
+ edad:"23 añitos en la flor de mi juventud.",
+ universidad:"Estudio Ingeniería de Sistemas en la Universidad Privada Domingo Savio (UPDS), sede La Paz.",
+ cumple:"Mi cumpleaños es el 2 de mayo. Una fecha especial para compartir con las personas importantes.",
+ signo:"Mi signo zodiacal es Tauro. Se suele asociar con la constancia, la paciencia, la determinación y el aprecio por la estabilidad."
+};
+const datasets={
+ pasatiempos:{title:"Mis pasatiempos",sub:"Actividades que disfruto realizar en mi tiempo libre.",items:[
+ ["⚽ Deportes","Fútbol, futsal, tenis y wally. Me gusta mantenerme activo, compartir en equipo y disfrutar la competencia sana.","Me gusta el deporte porque combina movimiento, compañerismo y disciplina."],
+ ["🥁 Música e instrumentos","Percusión, atabales, bajo, guitarra, piano y trompeta. También disfruto cantar y animar.","La música es una forma de expresión; cada instrumento permite transmitir una emoción diferente."],
+ ["🎬 Películas y series","Me atraen especialmente las películas de acción y terror. También disfruto algunas historias románticas, de aventura y suspenso.","Me gustan las historias que generan emoción, mantienen la intriga y dejan algo para recordar."],
+ ["🎧 Escuchar música","Bachata, rock clásico, rock boliviano, cumbia y canciones románticas acompañan distintos momentos de mi día.","La música cambia el ambiente y puede acompañar tanto momentos tranquilos como reuniones con amigos."]
+ ]},
+ intereses:{title:"Mis intereses",sub:"Temas y experiencias que despiertan mi curiosidad.",items:[
+ ["💻 Tecnología","Programación, diseño web, herramientas digitales y nuevas tecnologías.","Me interesa comprender cómo la tecnología resuelve problemas y permite crear proyectos útiles."],
+ ["🎥 Producción audiovisual","Filmación, edición de video, fotografía, diseño gráfico y creación de contenido.","Me llama la atención transformar ideas en piezas visuales que comuniquen y conecten."],
+ ["🎶 Arte y música","Instrumentos, canto, percusión, ritmo y expresión artística.","El arte permite comunicar ideas y emociones de una manera creativa."],
+ ["🌎 Culturas y viajes","Conocer lugares, tradiciones, gastronomía y personas de diferentes culturas.","Viajar amplía la perspectiva y permite aprender fuera del entorno cotidiano."]
+ ]},
+ habilidades:{title:"Mis habilidades",sub:"Capacidades que he desarrollado y que continúo fortaleciendo.",items:[
+ ["🎨 Diseño gráfico","Formación técnica en diseño gráfico y manejo creativo de recursos visuales.","Una habilidad que combina composición, creatividad y comunicación visual."],
+ ["💈 Barbería","Conocimientos de barbería y atención al detalle.","Una práctica que requiere precisión, paciencia y trato con las personas."],
+ ["🎬 Producción audiovisual","Experiencia de trabajo en tres productoras, participando en actividades de filmación.","Me ha permitido conocer el trabajo en equipo y los procesos de producción."],
+ ["🎵 Música y expresión","Percusión, ritmo, canto, animación e interés por distintos instrumentos.","Disfruto participar en actividades donde puedo expresarme y compartir energía."],
+ ["🧵 Costura","Habilidad para realizar trabajos de costura y resolver detalles prácticos.","Una actividad que desarrolla concentración, coordinación y creatividad."],
+ ["🏃 Actividad física","Trotar y practicar diferentes deportes recreativos.","Me ayuda a mantener una rutina activa y a desarrollar constancia."]
+ ]},
+ metas:{title:"Mis metas",sub:"Objetivos personales y profesionales que quiero alcanzar.",items:[
+ ["🎥 Crear mi propia productora","Desarrollar una productora audiovisual con identidad propia, equipo creativo y proyectos de calidad.","Quiero convertir mi experiencia e ideas en un proyecto profesional sostenible."],
+ ["🏡 Terminar de pagar mi casa","Continuar avanzando hasta completar el pago de mi vivienda.","Representa estabilidad, esfuerzo y una meta construida con responsabilidad."],
+ ["🚘 Comprar un vehículo propio","Ahorrar y organizar mis recursos para adquirir un automóvil.","Una meta que representa independencia y nuevas posibilidades."],
+ ["🌍 Viajar a otros continentes","Conocer países y culturas fuera de Latinoamérica.","Quiero descubrir nuevos lugares y ampliar mi experiencia de vida."],
+ ["🎹 Aprender más instrumentos","Seguir practicando y dominar instrumentos que todavía tengo pendientes.","La música es un aprendizaje continuo y una pasión que quiero desarrollar."]
+ ]},
+ suenos:{title:"Mis sueños",sub:"Experiencias y formas de vida que me gustaría alcanzar.",items:[
+ ["🌊 Vivir cerca del mar","Imagino una vida tranquila, cerca de una playa y rodeada de naturaleza.","Me gustaría despertar con calma, disfrutar del paisaje y encontrar equilibrio entre trabajo y vida personal."],
+ ["✈️ Conocer el mundo","Viajar por distintos países, descubrir culturas y vivir experiencias diferentes.","Quiero conocer lugares como las costas de Croacia, Grecia o Portugal, entre muchos otros destinos."],
+ ["🕊️ Tener paz y tranquilidad","Construir una vida estable, con tiempo para disfrutar, aprender y compartir.","Para mí, el éxito también significa bienestar, tranquilidad y felicidad."],
+ ["🎼 Dominar más instrumentos","Aprender nuevos instrumentos y seguir creciendo musicalmente.","Sueño con tener más recursos para expresarme a través de la música."]
+ ]},
+ logros:{title:"Mis logros",sub:"Experiencias, formación y avances que valoro.",items:[
+ ["🎓 Técnico Superior en Diseño Gráfico","Formación técnica superior en el área de Diseño Gráfico.","Un logro académico que fortaleció mi creatividad y mis conocimientos visuales."],
+ ["💈 Formación en barbería","Cuento con formación y conocimientos de barbería.","Una habilidad práctica que forma parte de mi desarrollo personal."],
+ ["🎬 Trabajo en tres productoras","He tenido la oportunidad de trabajar en tres productoras y participar en actividades como filmmaker.","Estas experiencias me han permitido aprender sobre producción y trabajo colaborativo."],
+ ["🏡 Avance hacia mi vivienda","He avanzado con el pago de mi casa.","Es un logro importante que refleja esfuerzo, planificación y perseverancia."],
+ ["🎸 Equipamiento propio","He podido adquirir muebles e instrumentos musicales con mis propios recursos.","Valoro estos avances porque son fruto de mi trabajo y dedicación."]
+ ]},
+ gustos:{title:"Gustos y preferencias",sub:"Cinco categorías para conocer algunas de mis elecciones favoritas.",items:[
+ ["🎵 Música favorita","Bachata, música romántica, Siddhartha, Zoé, rock clásico, rock boliviano y cumbia villera.","Me gusta alternar entre sonidos nostálgicos, románticos y ritmos alegres."],
+ ["🎞️ Películas y series","Acción, terror, suspenso, aventura y algunas películas románticas.","Disfruto las historias intensas, los misterios y las tramas que sorprenden."],
+ ["🍲 Platos favoritos","Fricasé, ceviche, tacos mexicanos, silpancho, pique macho y comida tradicional boliviana.","Me gusta probar sabores diferentes y disfrutar tanto de la gastronomía nacional como internacional."],
+ ["📍 Lugares especiales","Paisajes naturales, playas, miradores, ciudades con historia y lugares culturales.","Me atraen los destinos que combinan naturaleza, arquitectura y experiencias."],
+ ["🍂 Estación preferida","Días frescos, ambientes de fin de año y celebraciones de diciembre.","Diciembre me gusta por el ambiente de las fiestas, los encuentros y el cierre de un ciclo."]
+ ]},
+ viajes:{title:"Viajes y aventuras",sub:"Destinos y recuerdos para completar con tus propias fotografías y experiencias.",items:[
+ ["🇦🇷 Argentina","Buenos Aires, Córdoba, Mendoza, Bariloche, Rosario, Salta y Puerto Iguazú.","Un recorrido de referencia por ciudades conocidas por su cultura, paisajes y gastronomía. Estuvimos 5 días completos con amigos de toda la vida. En Buenos Aires comimos unas empanadas jugosas y una milanesa napolitana gigante que apenas podíamos compartir. Salimos de noche a caminar por Puerto Madero y terminamos riendo hasta tarde en una discoteca con música en vivo. En Bariloche pasamos 3 días más: fuimos al parque nacional, caminamos junto al lago y probamos el mejor chocolate caliente de mi vida. Con amigos del trabajo que viven allá, hicimos una parrilla al aire libre y contamos anécdotas hasta que se hizo de noche. En Salta, mi primo nos llevó a comer empanadas salteñas recién salidas del horno y caminamos por la plaza principal viendo el atardecer. En Puerto Iguazú, caminar bajo las cataratas fue impresionante, y al final del día cenamos juntos platos típicos mientras planificábamos el próximo viaje."],
+ ["🇨🇱 Chile","Santiago, Valparaíso, Viña del Mar, San Pedro de Atacama y Puerto Varas.","Lugares con contrastes entre ciudad, costa, desierto y naturaleza.Pasamos una semana entera con unos tíos que viven en Santiago. Nos recibieron con un asado casero y nos hicieron sentir como en casa desde el primer minuto. En Valparaíso nos perdimos entre sus escaleras coloridas, comimos mariscos frescos junto al mar y subimos a los miradores con amigos que conocimos allá. Por la noche salimos a caminar por la avenida principal y entramos a un lugar con música y luces donde todos nos divertimos mucho. En San Pedro de Atacama, fuimos al parque nacional con amigos de viaje, acampamos una noche mirando las estrellas — ¡nunca había visto un cielo tan lleno de luz! — y al día siguiente comimos un plato caliente en un restaurante sencillo pero acogedor. En Valdivia, comimos pastel de jaiba junto al río y paseamos en bote al atardecer."],
+ ["🇵🇪 Perú","Lima, Cusco, Machu Picchu, Arequipa, Puno y Huacachina.","Un país con historia, arquitectura y paisajes diversos.Estuvimos 6 días con compañeros de universidad que ahora viven en Lima. Llegamos y lo primero que hicimos fue comer ceviche fresco y limonada en una orilla del mar — ¡sabía a gloria! En Cusco caminamos por las calles empedradas, comimos un plato caliente de lomo saltado que nos devolvió las energías y salimos a cenar juntos mientras recordábamos viejos tiempos. En Machu Picchu llegamos temprano, emocionados como niños, y arriba nos tomamos fotos infinitas prometiendo volver. En Arequipa comimos rocoto relleno con la familia de un amigo, y aunque picaba mucho, repetimos porque estaba delicioso. En Huacachina fuimos en carros por las dunas, reímos hasta dolernos el estómago y al atardecer nos sentamos a ver el sol esconderse entre la arena. "],
+ ["🇧🇷 Brasil","Río de Janeiro, São Paulo, Florianópolis, Salvador y Foz do Iguaçu.","Destinos conocidos por sus playas, cultura y paisajes. Fuimos 4 días con amigos de toda la vida. En Río de Janeiro subimos al Pan de Azúcar, bajamos y comimos feijoada en un puesto cercano — lleno de sabor y tradición. Por la noche salimos a caminar por Copacabana, entramos a un lugar con samba en vivo y terminamos bailando hasta que nos dolieron los pies. En São Paulo nos recibió un amigo que vive allá, nos llevó a un parque enorme donde pasamos la tarde charlando, y después cenamos comida típica brasileña con risas que no terminaban. En Foz do Iguaçu nos quedamos sin palabras ante las caídas de agua, y al final del día compartimos una pizza enorme entre todos mientras decíamos: 'tenemos que repetir esto pronto'."],
+ ["🇧🇴 Bolivia","La Paz, Santa Cruz, Cochabamba, Oruro, Potosí, Tarija y BSustituye o eni.","Un recorrido por siete departamentos. Viajamos una semana completa con mi familia y amigos de siempre. En La Paz subimos al mirador, comimos salteñas calientes recién horneadas y por la noche fuimos a un lugar con música en vivo donde bailamos hasta tarde. En Santa Cruz nos recibió la familia de mi mamá, hicimos una cena grande con platos que solo ellos saben preparar bien. En Cochabamba pasamos el fin de semana en un parque natural, hicimos un picnic con frutas y comida casera, y jugamos como cuando éramos pequeños. En Potosí caminamos por las calles históricas, comimos platos calientes en un restaurante sencillo y nos quedamos charlando hasta tarde. En Tarija visitamos viñedos con amigos del colegio, probamos vinos locales y comimos platos regionales mientras el tiempo parecía detenerse."]
+ ]},
+ sobremi:{title:"Más sobre mí",sub:"Pequeñas experiencias que forman parte de mi estilo de vida.",items:[
+ ["🌃 Salir y compartir","Me gusta salir a discotecas, bailar y disfrutar de un buen ambiente.","Disfruto la música, el baile y compartir momentos agradables con amigos."],
+ ["🎤 Asistir a eventos","Me interesa participar en eventos, presentaciones y actividades sociales.","Son oportunidades para conocer personas, descubrir propuestas y vivir nuevas experiencias."],
+ ["🍽️ Salir a comer","Me gusta conocer lugares para comer y probar diferentes platos.","La gastronomía también es una forma de descubrir culturas y compartir."],
+ ["🧳 Viajar y explorar","Disfruto la idea de viajar, conocer lugares y salir de la rutina.","Cada destino puede convertirse en una experiencia y un recuerdo especial."],
+ ["🎶 Cantar y tocar","La música ocupa un lugar importante entre mis actividades.","Me gusta expresarme, practicar y compartir la música con otras personas."],
+ ["🤝 Conocer gente nueva","Valoro las conversaciones y la posibilidad de conocer personas con distintas ideas.","Cada encuentro puede aportar una perspectiva o aprendizaje diferente."]
+ ]}
+};
+const grid=document.getElementById('contentGrid'),title=document.getElementById('contentTitle'),subtitle=document.getElementById('contentSubtitle'),detail=document.getElementById('detailBox');
+function showSection(key){
+ const d=datasets[key];if(!d)return;
+ title.textContent=d.title;subtitle.textContent=d.sub;detail.classList.remove('show');detail.innerHTML='';
+ grid.innerHTML=d.items.map((it,i)=>`<article class="info-card"><h3>${it[0]}</h3><p>${it[1]}</p><button data-detail="${i}">Descubrir más　＋</button></article>`).join('');
+ document.querySelectorAll('[data-section]').forEach(b=>b.classList.toggle('active',b.dataset.section===key));
+ grid.querySelectorAll('[data-detail]').forEach(btn=>btn.addEventListener('click',()=>{
+  const item=d.items[Number(btn.dataset.detail)];
+  detail.innerHTML=`<strong>${item[0]}</strong><br>${item[2]}`;
+  detail.classList.add('show');
+ }));
+ document.getElementById('contentPanel').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+document.querySelectorAll('[data-section]').forEach(b=>b.addEventListener('click',()=>showSection(b.dataset.section)));
+document.querySelectorAll('[data-fact]').forEach(b=>b.addEventListener('click',()=>{
+ const key=b.dataset.fact;document.getElementById('factDetail').textContent=factText[key];
+ document.querySelectorAll('.pill').forEach(p=>p.classList.toggle('active',p.dataset.fact===key));
+}));
+document.getElementById('presentationBtn').addEventListener('click',()=>{
+ const c=document.getElementById('presentationContent');c.classList.toggle('open');
+ document.getElementById('presentationBtn').textContent=c.classList.contains('open')?'Ocultar presentación　−':'Ver presentación　＋';
+});
+document.getElementById('resetContent').addEventListener('click',()=>{
+ title.textContent='Explora mi espacio';subtitle.textContent='Selecciona una de las categorías para descubrir su contenido.';
+ grid.innerHTML='<article class="info-card"><h3>Un espacio interactivo</h3><p>Los botones permiten cambiar esta sección sin salir de la página.</p></article><article class="info-card"><h3>A tu manera</h3><p>Personaliza textos, imágenes, GIF y enlaces para hacer tuya esta página.</p></article>';
+ detail.classList.remove('show');document.querySelectorAll('[data-section]').forEach(b=>b.classList.remove('active'));
+});
+const toast=document.getElementById('toast');
+document.querySelectorAll('[data-social]').forEach(a=>a.addEventListener('click',e=>{
+ if(a.getAttribute('href')==='#'){e.preventDefault();toast.textContent='Añade tu enlace personal de '+a.dataset.social+' en el atributo href de este botón.';toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2600);}
+}));
+</script>
+
+<script>
+// Menú hamburguesa: abrir/cerrar y cerrar al elegir un enlace.
+const menuToggle=document.getElementById('menuToggle');
+const hamburgerMenu=document.getElementById('hamburgerMenu');
+menuToggle.addEventListener('click',()=>{const open=hamburgerMenu.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(open));});
+hamburgerMenu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{hamburgerMenu.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');}));
+// Alternancia de tema claro y oscuro.
+document.getElementById('themeToggle').addEventListener('click',()=>{document.body.classList.toggle('light-mode');});
+// Doble selección: se requieren dos artistas distintos.
+function updateMusic(){const a=document.getElementById('artistOne').value,b=document.getElementById('artistTwo').value,out=document.getElementById('musicResult');if(!a||!b){out.textContent='Selecciona dos artistas diferentes para ver tu combinación musical.';return;}if(a===b){out.textContent='Elige dos artistas distintos para completar la doble selección.';return;}out.innerHTML='Tu selección romántica: <strong>'+a+'</strong> y <strong>'+b+'</strong>. ¡Una combinación para disfrutar de la música!';}
+document.getElementById('artistOne').addEventListener('change',updateMusic);document.getElementById('artistTwo').addEventListener('change',updateMusic);
+// Filtro combinado por categoría y texto de búsqueda.
+let activeFilter='all';const searchInput=document.getElementById('itemSearch');
+function applyFilter(){const q=searchInput.value.toLocaleLowerCase('es');let count=0;document.querySelectorAll('.filter-item').forEach(item=>{const categoryOk=activeFilter==='all'||item.dataset.type===activeFilter;const textOk=item.textContent.toLocaleLowerCase('es').includes(q);const show=categoryOk&&textOk;item.style.display=show?'block':'none';if(show)count++;});document.getElementById('filterCount').textContent=count+' elemento(s) encontrado(s)';}
+document.querySelectorAll('.filter-btn').forEach(btn=>btn.addEventListener('click',()=>{activeFilter=btn.dataset.filter;document.querySelectorAll('.filter-btn').forEach(b=>b.classList.toggle('active',b===btn));applyFilter();}));searchInput.addEventListener('input',applyFilter);
+// Validaciones del formulario: campos obligatorios, formato, rango, longitud y aceptación.
+document.getElementById('personalForm').addEventListener('submit', event => {
+    event.preventDefault();
+    
+    const name = document.getElementById('visitorName').value.trim();
+    const email = document.getElementById('visitorEmail').value.trim();
+    const ageInput = document.getElementById('visitorAge').value.trim();
+    const age = Number(ageInput);
+    const section = document.getElementById('visitorSection').value;
+    const message = document.getElementById('visitorMessage').value.trim();
+    const terms = document.getElementById('visitorTerms').checked;
+    const feedback = document.getElementById('formFeedback');
+    let errors = [];
+
+    // ==================================================
+    // 📝 NOMBRE — SÚPER ESTRICTO
+    // ==================================================
+    if (name === '') {
+        errors.push('• Escribe tu nombre completo, por favor. No lo dejes vacío.');
+    }
+    else if (/[0-9]/.test(name)) {
+        errors.push('• ⚠️ En el nombre SOLO van LETRAS. No pongas números, por favor.');
+    }
+    else if (/[!@#$%^&*()_+={}\[\]:;<>,.?\/\\|~`]/.test(name)) {
+        errors.push('• ⚠️ En el nombre NO pongas signos como: @ # $ % &. Solo letras.');
+    }
+    else if (!/^[A-Za-zÁáÉéÍíÓóÚúÑñ]{2,}\s+[A-Za-zÁáÉéÍíÓóÚúÑñ\s]{2,}$/.test(name)) {
+        errors.push('• ⚠️ Escribe DOS PALABRAS: tu NOMBRE y luego tu APELLIDO. Ejemplo: "Ana Pérez". Así de simple.');
+    }
+
+    // ==================================================
+    // 📧 CORREO — SÚPER ESTRICTO
+    // ==================================================
+    if (email === '') {
+        errors.push('• Escribe tu correo electrónico, por favor. No lo dejes vacío.');
+    }
+    else if (/\s/.test(email)) {
+        errors.push('• ⚠️ El correo NO lleva espacios. Júntalo todo seguido, por favor.');
+    }
+    else if (!email.includes('@')) {
+        errors.push('• ⚠️ Te falta el arroba: pon este símbolo @. Ejemplo: ana@gmail.com');
+    }
+    else if (!email.endsWith('.com')) {
+        errors.push('• ⚠️ Tu correo debe terminar en .com. Revisa cómo termina tu correo, por favor.');
+    }
+    else if (!/^[a-z0-9._%+-]{2,30}@[a-z0-9.-]{2,20}\.com$/.test(email)) {
+        errors.push('• ⚠️ Algo está mal con tu correo. Debe ser así: nombre@ejemplo.com');
+    }
+
+    // ==================================================
+    // 🎂 EDAD — SÚPER ESTRICTA
+    // ==================================================
+    if (ageInput === '') {
+        errors.push('• Escribe tu edad con números, por favor. No lo dejes vacío.');
+    }
+    else if (!/^\d+$/.test(ageInput)) {
+        errors.push('• ⚠️ Solo escribe NÚMEROS. No pongas letras ni palabras. Ejemplo: 18');
+    }
+    else if (age < 13) {
+        errors.push('• ⚠️ Debes tener al menos 13 años para llenar este formulario.');
+    }
+    else if (age > 100) {
+        errors.push('• ⚠️ La edad que escribiste es muy grande. Revisa bien el número, por favor.');
+    }
+
+    // ==================================================
+    // ⭐ SECCIÓN — OBLIGATORIA
+    // ==================================================
+    if (section === '') {
+        errors.push('• Elige una opción de la lista. No dejes esa casilla vacía.');
+    }
+
+    // ==================================================
+    // 💬 MENSAJE — SÚPER ESTRICTO
+    // ==================================================
+    if (message === '') {
+        errors.push('• Escribe algo en el mensaje, por favor. No lo dejes vacío.');
+    }
+    else if (message.replace(/\s/g, '').length === 0) {
+        errors.push('• ⚠️ Solo pusiste espacios. Escribe algo de verdad, por favor.');
+    }
+    else if (message.length < 10) {
+        errors.push('• El mensaje es muy corto. Escribe al menos 10 letras o palabras más.');
+    }
+    else if (message.length > 500) {
+        errors.push('• El mensaje es demasiado largo. Hazlo más corto, por favor.');
+    }
+
+    // ==================================================
+    // ✅ CONFIRMACIÓN — OBLIGATORIA
+    // ==================================================
+    if (!terms) {
+        errors.push('• Marca la casilla que dice "Confirmo que los datos son correctos". Solo hazle clic ahí.');
+    }
+
+    // ==================================================
+    // 📤 RESULTADO — TODO BIEN O ALGO MAL
+    // ==================================================
+    if (errors.length > 0) {
+        feedback.className = 'form-feedback error';
+        feedback.innerHTML = errors.join('<br>');
+        return;
+    }
+
+    feedback.className = 'form-feedback success';
+    feedback.innerHTML = '<strong>✅ ¡TODO ESTÁ BIEN, ' + name.toUpperCase() + '!</strong><br>Muy bien hecho. Tu formulario quedó registrado. Gracias por participar.';
+});
+// Borrar todo al limpiar
+document.getElementById('personalForm').addEventListener('reset', () => {
+    const f = document.getElementById('formFeedback');
+    f.textContent = '';
+    f.className = 'form-feedback';
+});
+</script>
+
+</body>
+</html>
