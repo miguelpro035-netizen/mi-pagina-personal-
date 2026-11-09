@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DeporZone La Paz - Reservas deportivas">
+    <title>DeporZone | Reservas Deportivas</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+<header class="navbar">
+    <div class="brand">
+        <div class="brand-icon">D</div>
+        <div>
+            <h1>DEPOR<span>ZONE</span></h1>
+            <small>LA PAZ · BOLIVIA</small>
+        </div>
+    </div>
+
+    <button id="menuToggle" class="menu-toggle">☰</button>
+
+    <nav id="mainNav">
+        <a href="#inicio">Inicio</a>
+        <a href="#canchas">Canchas</a>
+        <a href="#horarios">Horarios</a>
+        <a href="#reservar">Reservar</a>
+        <a href="#reservas">Mis reservas</a>
+    </nav>
+
+    <button id="themeToggle" class="theme-button">
+        ☀️ Modo claro
+    </button>
+</header>
+
+<main>
+
+<section class="hero" id="inicio">
+    <div class="hero-content">
+        <span class="hero-tag">⚽ EXPERIENCIA DEPORTIVA</span>
+        <h2>Tu próximo partido<br><span>comienza aquí.</span></h2>
+        <p>
+            Encuentra tu cancha ideal, consulta los horarios disponibles
+            y reserva tu espacio deportivo en DeporZone La Paz.
+        </p>
+        <a href="#canchas" class="primary-button">Explorar canchas →</a>
+
+        <div class="hero-features">
+            <span>✓ Reservas rápidas</span>
+            <span>✓ Horarios flexibles</span>
+            <span>✓ Atención personalizada</span>
+        </div>
+    </div>
+
+    <div class="hero-visual">
+        <div class="hero-ball">⚽</div>
+        <div class="hero-label">
+            <strong>DEPORTE + PASIÓN</strong>
+            <small>Vive cada partido</small>
+        </div>
+    </div>
+</section>
+
+<section class="stats">
+    <div><strong>05</strong><span>Tipos de deporte</span></div>
+    <div><strong>13</strong><span>Canchas disponibles</span></div>
+    <div><strong>12</strong><span>Horarios de referencia</span></div>
+    <div><strong>24/7</strong><span>Consulta online</span></div>
+</section>
+
+<section class="section" id="canchas">
+
+    <div class="section-title">
+        <div>
+            <span class="eyebrow">NUESTROS ESPACIOS</span>
+            <h2>Encuentra tu cancha</h2>
+            <p>Selecciona el deporte que deseas practicar.</p>
+        </div>
+        <span class="open-label">● DISPONIBILIDAD DEMO</span>
+    </div>
+
+    <div class="tabs">
+        <button class="tab active" data-sport="todos">Todas</button>
+        <button class="tab" data-sport="futsal">⚽ Futsal</button>
+        <button class="tab" data-sport="wally">🏐 Wally</button>
+        <button class="tab" data-sport="voley">🏐 Vóley</button>
+        <button class="tab" data-sport="basquet">🏀 Básquet</button>
+        <button class="tab" data-sport="tenis">🎾 Tenis</button>
+    </div>
+
+    <div class="filter-panel">
+        <div class="filter-field">
+            <label for="searchCourt">Buscar cancha</label>
+            <input type="text" id="searchCourt"
+                placeholder="Escribe el nombre...">
+        </div>
+
+        <div class="filter-field">
+            <label for="priceFilter">Filtrar por precio</label>
+            <select id="priceFilter">
+                <option value="all">Todos los precios</option>
+                <option value="low">Hasta Bs 80</option>
+                <option value="medium">Bs 81 - 120</option>
+                <option value="high">Más de Bs 120</option>
+            </select>
+        </div>
+
+        <div class="filter-field">
+            <label for="sortFilter">Ordenar por</label>
+            <select id="sortFilter">
+                <option value="default">Predeterminado</option>
+                <option value="asc">Menor precio</option>
+                <option value="desc">Mayor precio</option>
+            </select>
+        </div>
+
+        <button id="resetFilters" class="reset-button">
+            ↻ Limpiar filtros
+        </button>
+    </div>
+
+    <div class="courts-grid" id="courtsGrid">
+
+        <!-- FUTSAL 1 -->
+        <article class="court-card" data-sport="futsal"
+            data-price="100" data-name="Cancha Futsal Premium">
+            <div class="court-image futsal-image">
+                <span>⚽</span><label>DESTACADA</label>
+            </div>
+            <div class="court-info">
+                <span class="sport-label">FUTSAL</span>
+                <h3>Cancha Futsal Premium</h3>
+                <p>Superficie sintética y espacio deportivo iluminado.</p>
+                <div class="court-details">
+                    <span>👥 10 jugadores</span>
+                    <span>💡 Iluminación</span>
+                </div>
+                <div class="price-row">
+                    <strong>Bs 100</strong><small>/ hora</small>
+                </div>
+                <button class="details-button">Ver detalles ↓</button>
+                <div class="accordion-content">
+                    <p><b>Superficie:</b> Césped sintético.</p>
+                    <p><b>Servicios:</b> Iluminación y vestuarios.</p>
+                    <p><b>Capacidad:</b> 5 contra 5.</p>
+                </div>
+                <button class="reserve-button"
+                    data-court="Cancha Futsal Premium"
+                    data-sport="futsal">Seleccionar cancha →</button>
+            </div>
+        </article>
+
+        <!-- FUTSAL 2 -->
+        <article class="court-card" data-sport="futsal"
+            data-price="90" data-name="Cancha Futsal Norte">
+            <div class="court-image futsal-image">
+                <span>⚽</span><label>DISPONIBLE</label>
+            </div>
+            <div class="court-info">
+                <span class="sport-label">FUTSAL</span>
+                <h3>Cancha Futsal Norte</h3>
+                <p>Cancha recreativa con superficie sintética.</p>
+                <div class="court-details">
+                    <span>👥 10 jugadores</span>
+                    <span>💡 Iluminación</span>
+                </div>
+                <div class="price-row">
+                    <strong>Bs 90</strong><small>/ hora</small>
+                </div>
+                <button class="details-button">Ver detalles ↓</button>
+                <div class="accordion-content">
+                    <p><b>Superficie:</b> Césped sintético.</p>
+                    <p><b>Servicios:</b> Iluminación.</p>
+                    <p><b>Capacidad:</b> 5 contra 5.</p>
+                </div>
+                <button class="reserve-button"
+                    data-court="Cancha Futsal Norte"
+                    data-sport="futsal">Seleccionar cancha →</button>
+            </div>
+        </article>
+
+        <!-- FUTSAL 3 -->
+        <article class="court-card" data-sport="futsal"
+            data-price="110" data-name="Cancha Futsal Central">
+            <div class="court-image futsal-image">
+                <span>⚽</span><label>PREMIUM</label>
+            </div>
+            <div class="court-info">
+                <span class="sport-label">FUTSAL</span>
+                <h3>Cancha Futsal Central</h3>
+                <p>Espacio amplio para encuentros deportivos.</p>
+                <div class="court-details">
+                    <span>👥 10 jugadores</span>
+                    <span>💡 Iluminación</span>
+                </div>
+                <div class="price-row">
+                    <strong>Bs 110</strong><small>/ hora</small>
+                </div>
+                <button class="details-button">Ver detalles ↓</button>
+                <div class="accordion-content">
+                    <p><b>Superficie:</b> Césped sintético.</p>
+                    <p><b>Servicios:</b> Iluminación y vestuarios.</p>
+                    <p><b>Capacidad:</b> 5 contra 5.</p>
+                </div>
+                <button class="reserve-button"
+                    data-court="Cancha Futsal Central"
+                    data-sport="futsal">Seleccionar cancha →</button>
+            </div>
+        </article>
+
+        <!-- WALLY 1 -->
+        <article class="court-card" data-sport="wally"
+            data-price="80" data-name="Cancha Wally Pro">
+            <div class="court-image wally-image">
+                <span>🏐</span><label>POPULAR</label>
+            </div>
+            <div class="court-info">
+                <span class="sport-label">WALLY</span>
+                <h3>Cancha Wally Pro</h3>
+                <p>Espacio preparado para partidos recreativos.</p>
+                <div class="court-details">
+                    <span>👥 6 jugadores</span>
+                    <span>💡 Iluminación</span>
+                </div>
+                <div class="price-row">
+                    <strong>Bs 80</strong><small>/ hora</small>
+                </div>
+                <button class="details-button">Ver detalles ↓</button>
+                <div class="accordion-content">
+                    <p><b>Superficie:</b> Piso deportivo.</p>
+                    <p><b>Servicios:</b> Iluminación y vestuarios.</p>
+                    <p><b>Capacidad:</b> Juego de Wally.</p>
+                </div>
+                <button class="reserve-button"
+                    data-court="Cancha Wally Pro"
+                    data-sport="wally">Seleccionar cancha →</button>
+            </div>
+        </article>
+
+        <!-- WALLY 2 -->
+        <article class="court-card" data-sport="wally"
+            data-price="75" data-name="Cancha Wally Sur">
+            <div class="court-image wally-image">
+                <span>🏐</span><label>DISPONIBLE</label>
+            </div>
+            <div class="court-info">
+                <span class="sport-label">WALLY</span>
+                <h3>Cancha Wally Sur</h3>
+                <p>Ideal para partidos entre amigos y prácticas.</p>
+                <div class="court-details">
+                    <span>👥 6 jugadores</span>
+                    <span>💡 Iluminación</span>
+                </div>
+                <div class="price-row">
+                    <strong>Bs 75</strong><small>/ hora</small>
+                </div>
+                <button class="details-button">Ver detalles ↓</button>
+                <div class="accordion-content">
+                    <p><b>Superficie:</b> Piso deportivo.</p>
+                    <p><b>Servicios:</b> Iluminación.</p>
+                    <p><b>Capacidad:</b> Juego de Wally.</p>
+                </div>
+                <button class="reserve-button"
+                    data-court="Cancha Wally Sur"
+                    data-sport="wally">Seleccionar cancha →</button>
+            </div>
+        </article>
+
+        <!-- WALLY 3 -->
+        <article class="court-card" data-sport="wally"
+            data-price="95" data-name="Cancha Wally Arena">
+            <div class="court-image wally-image">
+                <span>🏐</span><label>PRO</label>
+            </div>
+            <div class="court-info">
+                <span class="sport-label">WALLY</span>
+                <h3>Cancha Wally Arena</h3>
+                <p>Instalación deportiva con área de espectadores.</p>
+                <div class="court-details">
+                    <span>👥 6 jugadores</span>
+                    <span>💡 Iluminación</span>
+                </div>
+                <div class="price-row">
+                    <strong>Bs 95</strong><small>/ hora</small>
+                </div>
+                <button class="details-button">Ver detalles ↓</button>
+                <div class="accordion-content">
+                    <p><b>Superficie:</b> Piso deportivo.</p>
+                    <p><b>Servicios:</b> Iluminación y graderías.</p>
+                    <p><b>Capacidad:</b> Juego de Wally.</p>
+                </div>
+                <button class="reserve-button"
+                    data-court="Cancha Wally Arena"
+                    data-sport="wally">Seleccionar cancha →</button>
+            </div>
+        </article>
+
+        <!-- VOLEY -->
+        <article class="court-card" data-sport="voley"
+            data-price="120" data-name="Cancha Vóley Arena">
+            <div class="court-image voley-image">
+                <span>🏐</span><label>PROFESIONAL</label>
+            </div>
+            <div class="court-info">
+                <span class="sport-label">VÓLEY</span>
+                <h3>Cancha Vóley Arena</h3>
+                <p>Espacio amplio para entrenamientos y encuentros.</p>
+                <div class="court-details">
+                    <span>👥 12 jugadores</span>
+                    <span>💡 Iluminación</span>
+                </div>
+                <div class="price-row">
+                    <strong>Bs 120</strong><small>/ hora</small>
+                </div>
+                <button class="details-button">Ver detalles ↓</button>
+                <div class="accordion-content">
+                    <p><b>Superficie:</b> Piso deportivo.</p>
+                    <p><b>Servicios:</b> Iluminación.</p>
+                    <p><b>Capacidad:</b> 6 contra 6.</p>
+                </div>
+                <button class="reserve-button"
+                    data-court="Cancha Vóley Arena"
+                    data-sport="voley">Seleccionar cancha →</button>
+            </div>
+        </article>
+
+        <!-- BÁSQUET 1 -->
+        <article class="court-card" data-sport="basquet"
+            data-price="130" data-name="Cancha Básquet Central">
+            <div class="court-image basquet-image">
+                <span>🏀</span><label>DESTACADA</label>
+            </div>
+            <div class="court-info">
+                <span class="sport-label">BÁSQUET</span>
+                <h3>Cancha Básquet Central</h3>
+                <p>Cancha reglamentaria para encuentros y entrenamientos.</p>
+                <div class="court-details">
+                    <span>👥 10 jugadores</span>
+                    <span>🏀 Aros reglamentarios</span>
+                </div>
+                <div class="price-row">
+                    <strong>Bs 130</strong><small>/ hora</small>
+                </div>
+                <button class="details-button">Ver detalles ↓</button>
+                <div class="accordion-content">
+                    <p><b>Superficie:</b> Piso deportivo.</p>
+                    <p><b>Servicios:</b> Iluminación y graderías.</p>
+                    <p><b>Capacidad:</b> 5 contra 5.</p>
+                </div>
+                <button class="reserve-button"
+                    data-court="Cancha Básquet Central"
+                    data-sport="basquet">Seleccionar cancha →</button>
+            </div>
+        </article>
+
+        <!-- BÁSQUET 2 -->
+        <article class="court-card" data-sport="basquet"
+            data-price="115" data-name="Cancha Básquet Norte">
+            <div class="court-image basquet-image">
+                <span>🏀</span><label>DISPONIBLE</label>
+            </div>
+            <div class="court-info">
+                <span class="sport-label">BÁSQUET</span>
+                <h3>Cancha Básquet Norte</h3>
+                <p>Espacio cómodo para prácticas deportivas.</p>
+                <div class="court-details">
+                    <span>👥 10 jugadores</span>
+                    <span>🏀 Aros deportivos</span>
+                </div>
+                <div class="price-row">
+                    <strong>Bs 115</strong><small>/ hora</small>
+                </div>
+                <button class="details-button">Ver detalles ↓</button>
+                <div class="accordion-content">
+                    <p><b>Superficie:</b> Cemento pulido.</p>
+                    <p><b>Servicios:</b> Iluminación.</p>
+                    <p><b>Capacidad:</b> 5 contra 5.</p>
+                </div>
+                <button class="reserve-button"
+                    data-court="Cancha Básquet Norte"
+                    data-sport="basquet">Seleccionar cancha →</button>
+            </div>
+        </article>
+
+        <!-- BÁSQUET 3 -->
+        <article class="court-card" data-sport="basquet"
+            data-price="140" data-name="Cancha Básquet Premium">
+            <div class="court-image basquet-image">
+                <span>🏀</span><label>PREMIUM</label>
+            </div>
+            <div class="court-info">
+                <span class="sport-label">BÁSQUET</span>
+                <h3>Cancha Básquet Premium</h3>
+                <p>Instalación amplia con iluminación y graderías.</p>
+                <div class="court-details">
+                    <span>👥 10 jugadores</span>
+                    <span>💡 Iluminación</span>
+                </div>
+                <div class="price-row">
+                    <strong>Bs 140</strong><small>/ hora</small>
+                </div>
+                <button class="details-button">Ver detalles ↓</button>
+                <div class="accordion-content">
+                    <p><b>Superficie:</b> Piso deportivo.</p>
+                    <p><b>Servicios:</b> Iluminación y graderías.</p>
+                    <p><b>Capacidad:</b> 5 contra 5.</p>
+                </div>
+                <button class="reserve-button"
+                    data-court="Cancha Básquet Premium"
+                    data-sport="basquet">Seleccionar cancha →</button>
+            </div>
+        </article>
+
+        <!-- TENIS 1 -->
+        <article class="court-card" data-sport="tenis"
+            data-price="100" data-name="Cancha Tenis Club">
+            <div class="court-image tenis-image">
+                <span>🎾</span><label>CLUB</label>
+            </div>
+            <div class="court-info">
+                <span class="sport-label">TENIS</span>
+                <h3>Cancha Tenis Club</h3>
+                <p>Espacio para partidos individuales y dobles.</p>
+                <div class="court-details">
+                    <span>👥 2 a 4 jugadores</span>
+                    <span>🎾 Red reglamentaria</span>
+                </div>
+                <div class="price-row">
+                    <strong>Bs 100</strong><small>/ hora</small>
+                </div>
+                <button class="details-button">Ver detalles ↓</button>
+                <div class="accordion-content">
+                    <p><b>Superficie:</b> Polvo de ladrillo.</p>
+                    <p><b>Servicios:</b> Iluminación.</p>
+                    <p><b>Modalidad:</b> Individual o dobles.</p>
+                </div>
+                <button class="reserve-button"
+                    data-court="Cancha Tenis Club"
+                    data-sport="tenis">Seleccionar cancha →</button>
+            </div>
+        </article>
+
+        <!-- TENIS 2 -->
+        <article class="court-card" data-sport="tenis"
+            data-price="90" data-name="Cancha Tenis Norte">
+            <div class="court-image tenis-image">
+                <span>🎾</span><label>DISPONIBLE</label>
+            </div>
+            <div class="court-info">
+                <span class="sport-label">TENIS</span>
+                <h3>Cancha Tenis Norte</h3>
+                <p>Cancha para práctica y recreación deportiva.</p>
+                <div class="court-details">
+                    <span>👥 2 a 4 jugadores</span>
+                    <span>🎾 Red deportiva</span>
+                </div>
+                <div class="price-row">
+                    <strong>Bs 90</strong><small>/ hora</small>
+                </div>
+                <button class="details-button">Ver detalles ↓</button>
+                <div class="accordion-content">
+                    <p><b>Superficie:</b> Cemento deportivo.</p>
+                    <p><b>Servicios:</b> Iluminación.</p>
+                    <p><b>Modalidad:</b> Individual o dobles.</p>
+                </div>
+                <button class="reserve-button"
+                    data-court="Cancha Tenis Norte"
+                    data-sport="tenis">Seleccionar cancha →</button>
+            </div>
+        </article>
+
+        <!-- TENIS 3 -->
+        <article class="court-card" data-sport="tenis"
+            data-price="120" data-name="Cancha Tenis Premium">
+            <div class="court-image tenis-image">
+                <span>🎾</span><label>PREMIUM</label>
+            </div>
+            <div class="court-info">
+                <span class="sport-label">TENIS</span>
+                <h3>Cancha Tenis Premium</h3>
+                <p>Instalación deportiva con espacio de descanso.</p>
+                <div class="court-details">
+                    <span>👥 2 a 4 jugadores</span>
+                    <span>💡 Iluminación</span>
+                </div>
+                <div class="price-row">
+                    <strong>Bs 120</strong><small>/ hora</small>
+                </div>
+                <button class="details-button">Ver detalles ↓</button>
+                <div class="accordion-content">
+                    <p><b>Superficie:</b> Césped sintético.</p>
+                    <p><b>Servicios:</b> Iluminación y área de descanso.</p>
+                    <p><b>Modalidad:</b> Individual o dobles.</p>
+                </div>
+                <button class="reserve-button"
+                    data-court="Cancha Tenis Premium"
+                    data-sport="tenis">Seleccionar cancha →</button>
+            </div>
+        </article>
+
+    </div>
+
+    <p id="noResults">
+        No se encontraron canchas con esos filtros.
+    </p>
+</section>
+
+<section class="section schedule-section" id="horarios">
+    <div class="section-title">
+        <div>
+            <span class="eyebrow">AGENDA DEPORTIVA</span>
+            <h2>Selecciona tu horario</h2>
+            <p>Haz clic para elegir un turno disponible.</p>
+        </div>
+    </div>
+
+    <div class="schedule-panel">
+        <div class="schedule-top">
+            <h3>Horarios disponibles</h3>
+            <input type="date" id="reservationDate">
+        </div>
+
+        <div class="schedule-legend">
+            <span><i class="available"></i> Disponible</span>
+            <span><i class="selected"></i> Seleccionado</span>
+            <span><i class="occupied"></i> Reservado</span>
+        </div>
+
+        <div class="slots-grid" id="slotsGrid">
+            <button class="slot" data-time="08:00">08:00</button>
+            <button class="slot" data-time="09:00">09:00</button>
+            <button class="slot" data-time="10:00">10:00</button>
+            <button class="slot" data-time="11:00">11:00</button>
+            <button class="slot" data-time="12:00">12:00</button>
+            <button class="slot" data-time="13:00">13:00</button>
+            <button class="slot" data-time="14:00">14:00</button>
+            <button class="slot" data-time="15:00">15:00</button>
+            <button class="slot" data-time="16:00">16:00</button>
+            <button class="slot" data-time="17:00">17:00</button>
+            <button class="slot" data-time="18:00">18:00</button>
+            <button class="slot" data-time="19:00">19:00</button>
+        </div>
+
+        <div class="special-message">
+            ✨ Los horarios se bloquean por cancha y fecha al registrar
+            una reserva. La selección VIP es una demostración visual.
+        </div>
+    </div>
+</section>
+
+<section class="section booking-section" id="reservar">
+    <div class="section-title">
+        <div>
+            <span class="eyebrow">GESTIÓN DE RESERVAS</span>
+            <h2>Completa tu reserva</h2>
+            <p>Introduce tus datos para generar tu solicitud.</p>
+        </div>
+    </div>
+
+    <div class="booking-layout">
+        <form id="bookingForm" class="booking-form">
+
+            <div class="form-row">
+                <div class="form-field">
+                    <label for="clientName">Nombre completo *</label>
+                    <input type="text" id="clientName"
+                        placeholder="Ej. Miguel Chipana" required>
+                    <small class="error" id="nameError"></small>
+                </div>
+
+                <div class="form-field">
+                    <label for="clientPhone">Teléfono *</label>
+                    <input type="tel" id="clientPhone"
+                        placeholder="Ej. 71234567" maxlength="8" required>
+                    <small class="error" id="phoneError"></small>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-field">
+                    <label for="selectedSport">Deporte *</label>
+                    <select id="selectedSport" required>
+                        <option value="">Seleccionar</option>
+                        <option value="futsal">Futsal</option>
+                        <option value="wally">Wally</option>
+                        <option value="voley">Vóley</option>
+                        <option value="basquet">Básquet</option>
+                        <option value="tenis">Tenis</option>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="selectedCourt">Cancha *</label>
+                    <select id="selectedCourt" required>
+                        <option value="">Seleccionar cancha</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-field">
+                    <label for="selectedDate">Fecha *</label>
+                    <input type="date" id="selectedDate" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="selectedTime">Horario elegido *</label>
+                    <input type="text" id="selectedTime"
+                        placeholder="Selecciona un horario"
+                        readonly required>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label for="comments">Observaciones</label>
+                <textarea id="comments" rows="3"
+                    placeholder="Información adicional (opcional)"></textarea>
+            </div>
+
+            <div class="form-check">
+                <input type="checkbox" id="terms">
+                <label for="terms">
+                    Confirmo que los datos proporcionados son correctos.
+                </label>
+            </div>
+
+            <small class="error" id="formError"></small>
+
+            <button type="submit" class="confirm-button">
+                Confirmar reserva →
+            </button>
+        </form>
+
+        <aside class="booking-summary">
+            <span class="eyebrow">RESUMEN</span>
+            <h3>Tu reserva</h3>
+
+            <div class="summary-line">
+                <span>Deporte</span>
+                <strong id="summarySport">No seleccionado</strong>
+            </div>
+
+            <div class="summary-line">
+                <span>Cancha</span>
+                <strong id="summaryCourt">No seleccionada</strong>
+            </div>
+
+            <div class="summary-line">
+                <span>Fecha</span>
+                <strong id="summaryDate">No seleccionada</strong>
+            </div>
+
+            <div class="summary-line">
+                <span>Horario</span>
+                <strong id="summaryTime">No seleccionado</strong>
+            </div>
+
+            <div class="summary-total">
+                <span>Precio por hora</span>
+                <strong id="summaryPrice">Bs 0</strong>
+            </div>
+
+            <p>Los precios son ilustrativos para esta demostración académica.</p>
+        </aside>
+    </div>
+</section>
+
+<section class="section" id="reservas">
+    <div class="section-title">
+        <div>
+            <span class="eyebrow">HISTORIAL</span>
+            <h2>Reservas registradas</h2>
+            <p>Solicitudes creadas durante esta sesión.</p>
+        </div>
+        <span class="reservation-count" id="reservationCount">
+            0 reservas
+        </span>
+    </div>
+
+    <div class="reservations-container" id="reservationsList">
+        <p class="empty-message">
+            Todavía no existen reservas registradas.
+        </p>
+    </div>
+</section>
+
+</main>
+
+<!-- MODAL -->
+<div class="modal" id="courtModal">
+    <div class="modal-content">
+        <button class="modal-close" id="closeModal">×</button>
+        <span class="eyebrow">INFORMACIÓN DE CANCHA</span>
+        <h2 id="modalTitle">Detalles</h2>
+        <p id="modalDescription"></p>
+        <button id="modalReserve" class="primary-button">
+            Reservar esta cancha
+        </button>
+    </div>
+</div>
+
+<!-- NOTIFICACIÓN -->
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<footer>
+    <div class="footer-brand">DEPORZONE</div>
+    <p>Tu espacio deportivo en La Paz, Bolivia.</p>
+
+    <div class="social-section">
+        <h3>Datos de la microempresa</h3>
+        <div style="display:grid; gap:6px; margin:12px 0 20px; font-size:13px; color:var(--muted);">
+            <span>📍 Av. 16 de Julio (El Prado) #1234, La Paz, Bolivia</span>
+            <span>🕒 Atencion de Lunes a Domingo de 06:00 am hasta las 12:00 pm (reservas en linea las 24 horas del dia de Lunes a Domingo)</span>
+            <span>📞 <a href="tel:+59175293667">+591 75293667</a></span>
+            <span>✉️ <a href="mailto:miguelpro035@gmail.com">miguelpro035@gmail.com</a></span>
+        </div>
+
+        <h3>Conéctate con nosotros</h3>
+        <p>Encuéntranos en nuestras redes sociales o contáctanos directamente.</p>
+
+        <div class="social-links">
+            <a href="https://www.facebook.com/share/18tQNuD8GC/"
+                target="_blank" rel="noopener noreferrer"
+                class="social-link">Facebook ↗</a>
+
+            <a href="https://www.instagram.com/miguelpanteras?rpxt=bXBjbjlhcGVmOGkx"
+                target="_blank" rel="noopener noreferrer"
+                class="social-link">Instagram ↗</a>
+
+            <a href="https://www.tiktok.com/@panna_miguel7?_r=1&amp;_t=ZS-9B5w3W9k8Ge"
+                target="_blank" rel="noopener noreferrer"
+                class="social-link">TikTok ↗</a>
+
+            <a href="https://wa.me/59175293667"
+                target="_blank" rel="noopener noreferrer"
+                class="social-link whatsapp">WhatsApp ↗</a>
+        </div>
+    </div>
+
+    <small>Proyecto académico · Diseño Web II · UPDS 2026</small>
+
+
+<script src="script.js"></script>
+</body>
+</html>
+  
